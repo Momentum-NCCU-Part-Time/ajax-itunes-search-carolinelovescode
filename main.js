@@ -1,8 +1,10 @@
 // const musicURL = "https://itunes.apple.com/search?term="
 const iTunesUrl = "https://itunes.apple.com/search?term="
-const everything = document.querySelector(".container")
+// const prevUrl =
+const everything = document.querySelector(".container");
 let musicName = document.querySelector("#musicName");
-let searchText = document.querySelector(".searchText")
+let searchText = document.querySelector(".searchText");
+let audioTag = document.getElementById('audioBox');
 
 // let findButton = document.querySelectorAll('.findButton')
 
@@ -28,6 +30,7 @@ function getMusic(url) {
     }).then(function (response) {
         return response.json()
     }).then(function (data) {
+        showResults(data.results);
         console.log(data)
     })
 
@@ -37,26 +40,54 @@ function getMusic(url) {
 // display the data
 
 function showResults(songArray) {
-    container.innerHTML = ""
-    if (songArray.length === '0') {
-        container.innerText = "No results find."
+    everything.innerHTML = ""
+    if (songArray.length === 0) {
+        everything.innerText = "No results find."
     } else {
         for (let song of songArray) {
             let resultCard = document.createElement('div');
             resultCard.classList.add('resultCard');
-            container.appendChild('resultCard');
-            // album thumbnail
+            everything.appendChild(resultCard);
+            // album thumbnail, template for remaining information
             let albumCard = document.createElement('img');
             albumCard.classList.add('albumCard');
-            albumCard.src = `${results[0].artworkUrl100}`;
-            resultCard.appendChild('albumCard');
+            albumCard.src = `${song.artworkUrl100}`;
+            resultCard.appendChild(albumCard);
+            // artist Name
+            let artistName = document.createElement('h3');
+            artistName.classList.add('artistName');
+            artistName.innerText = `${song.artistName}`;
+            resultCard.appendChild(artistName);
+            // song name 
+            let songTitle = document.createElement('p');
+            songTitle.classList.add('songTitle');
+            songTitle.innerText = `${song.trackName}`;
+            resultCard.appendChild(songTitle);
+            // music play src 
+            let songPrev = document.createElement('button');
+            songPrev.classList.add('songPrev');
+            songPrev.src = `${song.previewUrl}`;
+            songPrev.innerText = "PLAY";
+            resultCard.appendChild(songPrev);
 
+            songPrev.addEventListener('click', (e) => {
+                e.preventDefault();
+                audioTag.src = `${song.songPrev}`;
+                // you need to change these selectors to match your variables
+            })
+
+
+            // adding event listeners for when clicking on the play button
         }
-    }
+    };
 
 
 
-    searchResults.innerHTML = results
+
+    // you also need to make the play button with each song item 
+
+    songCard.appendChild(playButton)
+
 
 
 
