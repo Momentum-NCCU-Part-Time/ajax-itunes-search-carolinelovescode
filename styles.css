@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: lightblue;
+}
+h1 {
+  display: flex;
+  color: ivory;
+  background-color: teal;
+  border-color: lightblue;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+/* .phase-pre-ready-state-no-source {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  align-content: center;
+} */
+.audioBox {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  height: px;
+}
+/*audio:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(2px 3px 3px #333);
+}*/
+/* ^^ giving me a hard time but I want it at the bottom */
+.searchBar {
+  display: flex;
+  justify-content: flex-end;
+}
+input[type="text"] {
+  width: auto;
+  padding: 15px;
+  border-style: solid;
+  border-color: orange;
+  border-width: 5px;
+}
+.findButton {
+  width: auto;
+  padding: 10px;
+  background-color: white;
+  border-color: burlywood;
+}
+.resultCard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  border-style: solid;
+  border-width: 5px;
+  border-color: orange;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 10px;
+}
+.artistName,
+.songTitle {
+  display: flex;
+  flex-wrap: wrap;
+  color: blue;
+}

@@ -69,11 +69,11 @@ function showResults(songArray) {
             songPrev.src = `${song.previewUrl}`;
             songPrev.innerText = "PLAY";
             resultCard.appendChild(songPrev);
-
+            // plays the music 
             songPrev.addEventListener('click', (e) => {
                 e.preventDefault();
-                audioTag.src = `${song.songPrev}`;
-                // you need to change these selectors to match your variables
+                audioTag.src = `${song.previewUrl}`;
+
             })
 
 
